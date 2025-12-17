@@ -122,12 +122,7 @@ def remove_from_order(parameters : dict , session_id : str):
 
 
 
-
-
-
-
-
-def track_order(parameters : dict):
+def track_order(parameters : dict , session_id : str):
     order_id = int(parameters["order-id"])
     print(f"Order id received: {order_id}")
     order_status = db_helper.get_order_status(order_id)
