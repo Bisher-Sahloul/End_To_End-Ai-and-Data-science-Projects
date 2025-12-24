@@ -35,13 +35,14 @@ Log Classification System/
 
 ## Installation
 
-1. Clone or download the project
-2. Install dependencies:
+1. **Install Dependencies**:
+   Make sure you have Python installed on your system. Install the required Python libraries by running the following command:
+
    ```bash
-   pip install fastapi uvicorn pandas sentence-transformers joblib groq python-dotenv
+   pip install -r requirements.txt
    ```
 
-3. For LLM classification, create a `.env` file with your Groq API key:
+2. For LLM classification, create a `.env` file with your Groq API key:
    ```
    GROQ_API_KEY=your_api_key_here
    ```
@@ -103,5 +104,6 @@ The `test.csv` file contains sample log entries for testing. The `Training/datas
 - python-dotenv: Environment variables
 
 ## License
-
 This project is open-source. Feel free to use and modify as needed.
+
+Some concepts and best practices used in this project were learned from online learning resources, including the Codebasics YouTube channel.
