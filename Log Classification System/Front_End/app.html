@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vibrant Log Classifier</title>
+  <link rel="stylesheet" href="/static/app.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="page">
+    <div class="card">
+      <header class="card-header">
+        <h1>Log Classifier</h1>
+        <p class="muted">Upload a CSV with <code>source</code> and <code>log_message</code> columns to classify logs.</p>
+      </header>
+
+      <section class="uploader">
+        <label id="dropzone" class="dropzone" for="fileInput" tabindex="0">
+          <input id="fileInput" type="file" accept=".csv" />
+          <div class="drop-hint">
+            <svg class="icon" width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2L8 6h3v6h2V6h3l-4-4zM6 8v12h12V8h-2v10H8V8H6z"/></svg>
+            <strong>Drag & drop</strong> or <span class="browse">browse</span>
+            <small class="muted">CSV only — columns: <code>source</code>, <code>log_message</code></small>
+          </div>
+        </label>
+
+        <div class="controls">
+          <button id="submitBtn" class="btn primary" disabled>
+            <span id="btnText">Classify Logs</span>
+            <span id="spinner" class="spinner" aria-hidden="true"></span>
+          </button>
+          <a id="downloadLink" class="btn secondary" style="display:none;" download="classified_logs.csv">Download result</a>
+        </div>
+
+        <div id="status" class="status" aria-live="polite"></div>
+      </section>
+
+      <section id="previewSection" class="preview hidden">
+        <h2>Preview — classified rows</h2>
+        <div class="table-wrap">
+          <table id="previewTable" class="table">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="card-footer">
+        <small class="muted">Running server at <code>http://localhost:8000/classify/</code></small>
+      </footer>
+    </div>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
